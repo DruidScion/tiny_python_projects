@@ -10,7 +10,9 @@ def get_args():
     """
     Get Command-line Arguments
     """
-    parser = argparse.ArgumentParser(description="XXXX")
+    parser = argparse.ArgumentParser(
+        description="Crow's Nest -- choose the correct article"
+    )
     parser.add_argument("word", help="A word to describe the sighting")
     return parser.parse_args()
 
