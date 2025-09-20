@@ -15,16 +15,19 @@ def get_args():
     return parser.parse_args()
 
 
+def get_article(word: str) -> str:
+    """
+    Get the correct article
+    """
+    return "an" if word[0].lower() in "aeiou" else "a"
+
+
 def main():
     """
     Main Function
     """
     args = get_args()
-    article = ""
-    if args.word[0].lower() in "aeiou":
-        article = "an"
-    else:
-        article = "a"
+    article = get_article(args.word)
     print(f"Ahoy, Captain, {article} {args.word} off the larboard bow!")
 
 
