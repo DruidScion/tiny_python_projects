@@ -18,17 +18,25 @@ def get_args():
     return parser.parse_args()
 
 
+def format_output(food: str) -> str:
+    """
+    Format the string properly for output
+    """
+    if len(food) == 1:
+        return food[0]
+    elif len(food) == 2:
+        return " and ".join(food)
+    else:
+        return ", ".join(food[:-1]) + ", and " + food[-1]
+
+
 def main():
     """
     Main Function
     """
     args = get_args()
-    food = []
-    if len(args.food) == 2:
-        food = args.food[0] + " and " + args.food[1]
-    else:
-        food = args.food[0]
-    print(f"You are bringing {food}.")
+    food = args.food
+    print(f"You are bringing {format_output(food)}.")
 
 
 if __name__ == "__main__":
