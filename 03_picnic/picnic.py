@@ -11,7 +11,7 @@ def get_args():
     Parse Command-line Arguments
     """
     parser = argparse.ArgumentParser(description="Picnic game")
-    parser.add_argument("food", type=str, nargs="+", help="Item(s) to bring")
+    parser.add_argument("food", metavar="str", nargs="+", help="Item(s) to bring")
     parser.add_argument("-s", "--sorted", action="store_true", help="Sort the items")
     return parser.parse_args()
 
@@ -32,10 +32,7 @@ def main():
     Main Function
     """
     args = get_args()
-    if args.sorted:
-        food = sorted(args.food)
-    else:
-        food = args.food
+    food = sorted(args.food) if args.sorted else args.food
     print(f"You are bringing {format_output(food)}.")
 
 
