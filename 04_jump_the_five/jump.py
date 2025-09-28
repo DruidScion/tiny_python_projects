@@ -11,9 +11,7 @@ def get_args():
     """Parse command-line arguments"""
     parser = argparse.ArgumentParser(description="Jump the five")
     parser.add_argument("text", metavar="str", help="Input text")
-    parser.add_argument(
-        "-d", "--decode", action="store_true", default="False", help="Decode text"
-    )
+    parser.add_argument("-d", "--decode", action="store_true", help="Decode text")
     return parser.parse_args()
 
 
